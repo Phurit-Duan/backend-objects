@@ -1,7 +1,7 @@
 FROM python:3
-ENV PYTHONUNBUFFERED=1
-WORKDIR /code
-COPY requirements.txt /code/
+ENV PYTHONNBUFFERED 1
+RUN mkdir /app
+WORKDIR /app
+COPY requirements.txt /app/
 RUN pip install -r requirements.txt
-COPY . /code/
-CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
+COPY . /app/
